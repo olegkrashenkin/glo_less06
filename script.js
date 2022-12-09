@@ -1,16 +1,19 @@
 'use strict'
 
+const btnStart = document.querySelector('.start')
+
 const game = (num = Math.floor(Math.random() * 100) + 1) => {
-    let count = 10
+    let count = 3
     let start = () => {
+        console.log(num);
         if (count > 0) {
-            let userNum = +prompt('Угадай число от 1 до 100')
+            let userNum = prompt('Угадай число от 1 до 100')
             switch (true) {
-                case userNum === 0: {
+                case userNum === null: {
                     alert('Игра окончена')
                     return
                 }
-                case userNum === num: {
+                case +userNum === num: {
                     if (confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?')) {
                         return game()
                     } else {
@@ -18,12 +21,12 @@ const game = (num = Math.floor(Math.random() * 100) + 1) => {
                         return
                     }
                 }
-                case userNum < num: {
+                case +userNum < num: {
                     count--
                     alert(`Загаданное число больше, осталось попыток: ${count}`)
                     return start()
                 }
-                case userNum > num: {
+                case +userNum > num: {
                     count--
                     alert(`Загаданное число меньше, осталось попыток: ${count}`)
                     return start()
@@ -44,5 +47,11 @@ const game = (num = Math.floor(Math.random() * 100) + 1) => {
     start()
 }
 
-game()
+btnStart.addEventListener('click', (event) => {
+    event.preventDefault()
+    game()
+})
+
+
+
 

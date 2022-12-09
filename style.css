@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box
+}
+
+.wrap {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vh;
+    height: 90vh;
+}
+
+.start {
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 24px;
+    text-transform: uppercase;
+    padding: 20px 50px;
+    transition: all .5s ease;
+}
+
+.start:hover {
+    background-color: orangered;
+}
