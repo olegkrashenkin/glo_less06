@@ -4,7 +4,6 @@ const btnStart = document.querySelector('.start')
 
 const game = (num = Math.floor(Math.random() * 100) + 1) => {
     let count = 10
-    console.log(num);
     const isCount = (flag = true) => {
         count--
         if (count === 0) {
@@ -37,12 +36,10 @@ const game = (num = Math.floor(Math.random() * 100) + 1) => {
                 }
             }
             case +userNum < num: {
-                isCount()
-                return
+                return isCount()
             }
             case +userNum > num: {
-                isCount(false)
-                return
+                return isCount(false)
             }
             default: {
                 alert('Введи число!')
